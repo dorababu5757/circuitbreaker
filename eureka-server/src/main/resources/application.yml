@@ -1,0 +1,13 @@
+eureka:
+    client:
+        fetchRegistry: false
+        registerWithEureka: true
+        serviceUrl:
+            defaultZone: http://localhost:8982/eureka/
+    server:
+        waitTimeInMsWhenSyncEmpty: 0
+server:
+    port: 8982
+spring:
+    application:
+        name: eureka-server

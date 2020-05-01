@@ -1,0 +1,42 @@
+server:
+ port: 8087
+spring:
+    application:
+      name: productdetails-service   
+    output:
+        ansi:
+            enabled: ALWAYS
+             
+eureka:
+    client:
+        fetchRegistry: true
+        registerWithEureka: true
+        service-url:
+            defaultZone: ${EUREKA_URI:http://localhost:8982/eureka} 
+management:
+    endpoints:
+        web:
+            exposure:
+                include: '*'
+hystrix:
+    command:
+        default:
+            execution:
+                isolation:
+                    thread:
+                        timeoutInMilliseconds: 210000
+            circuitBreaker: 
+               requestVolumeThreshold: 5
+               errorThresholdPercentage: 5
+               sleepWindowInMilliseconds: 1000
+            metrics:
+                rollingStats:
+                    timeInMilliseconds: 25000               
+                        
+    threadpool:
+        default:
+            coreSize: 50
+            maxQueueSize: 100
+            queueSizeRejectionThreshold: 50
+                
+                 

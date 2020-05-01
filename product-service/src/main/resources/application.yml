@@ -1,0 +1,47 @@
+server:
+ port: 8085
+spring:
+    datasource:
+        driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+        password: user@123
+        url: jdbc:sqlserver://LP11;databaseName=Microservice
+        username: dorababu
+    jpa:
+        properties:
+         hibernate:
+          dialect: org.hibernate.dialect.SQLServerDialect
+          ddl-auto: validate
+         show-sql: true  
+    application:
+      name: product-service   
+    output:
+        ansi:
+            enabled: ALWAYS
+             
+eureka:
+    client:
+        fetchRegistry: true
+        registerWithEureka: true
+        service-url:
+            defaultZone: ${EUREKA_URI:http://localhost:8982/eureka} 
+management:
+    endpoints:
+        web:
+            exposure:
+                include: '*'
+hystrix:
+    command:
+        default:
+            execution:
+                isolation:
+                    thread:
+                        timeoutInMilliseconds: 210000
+    threadpool:
+        default:
+            coreSize: 50
+            maxQueueSize: 100
+            queueSizeRejectionThreshold: 50
+logging:
+    file: /retry-logs/app.log            
+                
+                 

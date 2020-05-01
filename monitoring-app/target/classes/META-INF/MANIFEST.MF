@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: pakkurthi.dorababu
+Build-Jdk: 11.0.5
+Implementation-Title: monitoring-app
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.onerivet
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-boot
+ -starter-parent/monitoring-app
+Created-By: Maven Integration for Eclipse
+

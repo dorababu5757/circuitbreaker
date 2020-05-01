@@ -1,0 +1,28 @@
+server:
+  port: 8081
+  
+spring:
+  application:
+    name: monitoring-app
+  
+eureka:
+  client:
+    serviceUrl: 
+       defaultZone: ${EUREKA_URI:http://localhost:8982/eureka}
+  instance:
+    preferIpAddress: true
+  
+management:
+    security: 
+      enabled: false
+    endpoints: 
+      web: 
+       exposure: 
+        include: '*'
+
+
+     
+turbine:
+    appConfig: product-service,productdetails-service 
+    clusterNameExpression: "'default'"   
+        
